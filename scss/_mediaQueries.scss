@@ -41,15 +41,51 @@
         position: initial;
         height: 100%;
         width: 100%;
+        border-radius: 30% 70% 70% 30%  / 60% 40% 60% 40%;
       }
     }
   }
 
   .about {
-    margin: 0 10vw;
-    img {
-      width: 100% !important;
+    // display: block;
+    // margin: 0 10vw;
+    // display: grid;
+    // grid-template-columns: 1fr;
+    .title__container{
+      display: block;
+      display: grid;
+      grid-template-columns: 1fr;
+      margin-bottom: 1rem;
+      
+      // height: 45vh;
+      .discription{
+        
+      }
     }
+    .education{
+      .container{
+        // border: 1px solid red;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        .cont-inr-div{
+          display: flex;
+          justify-content: center;
+          .fortwopart{
+            display: grid;
+            grid-template-columns: 3fr, 1fr;
+            gap: 5px;
+          }
+        }
+      }
+      img {
+        width: 100% !important;
+      }
+    }
+    
   }
 
   .skills {

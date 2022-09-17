@@ -6,16 +6,7 @@
   padding: 2rem 0;
   .brand__container {
     display: flex;
-    .brand {
-      h2 {
-        span {
-          margin-left: 0.5rem;
-          font-size: 0.9rem;
-          letter-spacing: 0.1rem;
-          color: #45b649;
-        }
-      }
-    }
+    color: #838f8f;
     .toggle {
       display: none;
     }
@@ -77,7 +68,7 @@
         margin-left: 0.5rem;
         font-size: 0.9rem;
         letter-spacing: 0.1rem;
-        color: #45b649;
+        color:#697979;;
       }
     }
   }

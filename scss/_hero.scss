@@ -18,12 +18,15 @@
   }
   .image {
     position: relative;
+    display: flex;
+    justify-content: right;
     img {
       position: absolute;
       bottom: 0;
-      height: 85vh;
-      width: 50vw;
+      height: 55vh;
+      width: 25vw;
       object-fit: cover;
+      border-radius: 2%;
     }
   }
 }
