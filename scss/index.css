@@ -388,6 +388,18 @@ p {
   padding: 2rem;
   text-align: center;
 }
+.portfolio .container .portfolio__container .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.portfolio .container .portfolio__container .button .link_button {
+  text-decoration: none;
+  -webkit-text-decoration-color: #838f8f;
+          text-decoration-color: #838f8f;
+  color: #838f8f;
+}
 .portfolio .container .portfolio__container .image {
   display: block;
   width: 250px;

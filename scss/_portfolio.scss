@@ -13,7 +13,17 @@
       background-color: #181818;
       padding: 2rem;
       text-align: center;
-
+      .button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        .link_button{
+          text-decoration: none;
+          text-decoration-color: #838f8f;
+          color: #838f8f;
+        }
+      }
       .image {
         display: block;
         width: 250px;
