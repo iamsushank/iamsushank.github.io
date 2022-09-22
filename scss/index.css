@@ -474,6 +474,41 @@ p {
   font-size: 2.5rem;
 }
 
+.git_cal {
+  color: white;
+}
+.git_cal .git_head {
+  color: white;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.git_cal .calendar {
+  background-color: #181818;
+  color: white;
+  border: 0;
+}
+.git_cal .js-calendar-graph-svg {
+  margin-top: 1rem;
+}
+.git_cal .position-relative {
+  border: 0;
+}
+.git_cal .contrib-column {
+  border: 0;
+}
+.git_cal .contrib-number {
+  color: white;
+}
+.git_cal .text-muted {
+  color: #838f8f;
+}
+.git_cal .ContributionCalendar-label {
+  color: #838f8f;
+}
+.git_cal .px-md-5 {
+  margin-bottom: 5px;
+}
+
 .languages .container {
   display: flex;
   justify-content: center;
@@ -692,6 +727,38 @@ footer .section .tags li:hover {
   .languages .container {
     flex-direction: column;
     align-items: center;
+  }
+  .calendar {
+    width: auto;
+  }
+  .calendar .ContributionCalendar-label {
+    font-size: 10px;
+  }
+  .calendar .js-calendar-graph {
+    width: auto;
+  }
+  .calendar .js-calendar-graph-svg {
+    width: 80%;
+  }
+  .calendar .contrib-number {
+    font-size: 10px;
+  }
+  .calendar .text-muted {
+    font-size: 8px;
+  }
+  .calendar .float-right {
+    font-size: 11px;
+  }
+  .calendar .contrib-column {
+    padding-left: 8px;
+    padding-right: 5px;
+  }
+  .calendar .contrib-column > span + span + span {
+    text-decoration: none;
+    display: none;
+  }
+  .calendar .position-relative {
+    margin-top: 20px;
   }
   .contact {
     flex-direction: column;

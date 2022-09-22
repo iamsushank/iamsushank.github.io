@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="scss/index.css" />
+     <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"/>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -128,7 +129,7 @@
       <div class="img_container">
         <div class="education">
             <!-- <h2 style="color: white;"></h2> -->
-
+            
             <div class="container">
               <div class="cont-inr-div">
                 <a href="https://www.masaischool.com/" style="text-decoration: none" target="_blank">
@@ -389,10 +390,27 @@
         </div>
       </div>
     </section>
+
+    
+
     <div class="spring right" id="spring3">
       <div class="coil"></div>
       <div class="bar gradient"></div>
     </div>
+    <section class="git_cal defaultMargin">
+      <h2 class="git_head" id="git">Github Contribution</h2>
+      <div class="calendar"> 
+        <!-- Loading stuff -->
+        Loading the data just for you.
+      </div> 
+    </section>
+
+    <div class="spring" id="springL3">
+      <div class="coil"></div>
+      <div class="bar gradient"></div>
+    </div>
+
+
     <section class="languages defaultMargin">
       <div class="container">
         <div class="language">
@@ -412,10 +430,12 @@
         </div>
       </div>
     </section>
-    <div class="spring" id="springL3">
+
+    <div class="spring right" id="spring3">
       <div class="coil"></div>
       <div class="bar gradient"></div>
     </div>
+
     <section class="contact defaultMargin" id="contact">
       <div class="left">
         <div class="title">
@@ -500,5 +520,19 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="scripts/script.js"></script>
     <script src="scripts/animation.js"></script>
+    <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+    <script>
+      GitHubCalendar(".calendar", "sushank678");
+    
+      // or enable responsive functionality:
+      GitHubCalendar(".calendar", "sushank678", { responsive: true });
+    
+      // Use a proxy
+      GitHubCalendar(".calendar", "sushank678", {
+         proxy (sushank678) {
+           return fetch(`https://your-proxy.com/github?user=${sushank678}`)
+         }
+      }).then(r => r.text())
+    </script>
   </body>
 </html>

@@ -134,6 +134,39 @@
       align-items: center;
     }
   }
+
+  .calendar{
+    width: auto;
+    .ContributionCalendar-label{
+      font-size: 10px;
+    }
+    .js-calendar-graph{
+      width: auto;
+    }
+    .js-calendar-graph-svg{
+      width: 80%;
+    }
+    .contrib-number{
+      font-size: 10px;
+    }
+    .text-muted{
+      font-size: 8px;
+    }
+    .float-right{
+      font-size: 11px;
+    }
+    .contrib-column{
+      padding-left: 8px;
+      padding-right: 5px;
+    }
+    .contrib-column > span+span+span{
+      text-decoration: none;
+      display: none;
+    }
+    .position-relative{
+      margin-top: 20px;
+    }
+  }
   .contact {
     flex-direction: column;
     margin: 2rem 10vw;
