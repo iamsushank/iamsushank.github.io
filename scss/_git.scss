@@ -11,6 +11,9 @@
         background-color: #181818;
         color: white;
         border: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        height: auto;
     }
     .js-calendar-graph-svg{
         margin-top: 1rem;
@@ -33,4 +36,7 @@
     .px-md-5{
         margin-bottom: 5px;
     }
+}
+.calendar{
+    min-height: auto;
 }

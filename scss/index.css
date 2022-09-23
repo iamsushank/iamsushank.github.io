@@ -486,6 +486,9 @@ p {
   background-color: #181818;
   color: white;
   border: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: auto;
 }
 .git_cal .js-calendar-graph-svg {
   margin-top: 1rem;
@@ -507,6 +510,10 @@ p {
 }
 .git_cal .px-md-5 {
   margin-bottom: 5px;
+}
+
+.calendar {
+  min-height: auto;
 }
 
 .languages .container {
@@ -730,6 +737,7 @@ footer .section .tags li:hover {
   }
   .calendar {
     width: auto;
+    height: auto;
   }
   .calendar .ContributionCalendar-label {
     font-size: 10px;
