@@ -8,12 +8,18 @@
         margin-bottom: 2.5rem;
     }
     .calendar{
+        // width: 100%;
         background-color: #181818;
         color: white;
         border: 0;
         padding-left: 1rem;
         padding-right: 1rem;
         height: auto;
+    }
+    .js-calendar-graph{
+        width: 100%;
+        display: grid;
+        justify-content: center;
     }
     .js-calendar-graph-svg{
         margin-top: 1rem;

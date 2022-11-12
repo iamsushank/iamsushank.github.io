@@ -1,11 +1,26 @@
+.nav_center{
+  display: center;
+  display: flex;
+  justify-content: center;
+}
 .navbar {
+  width: 70%;
+  display: block;
+  background-color: #0b0b0b;
   display: flex;
   justify-content: space-between;
+  // justify-content: center;
   align-items: center;
   color: white;
-  padding: 2rem 0;
+  padding: 1rem 0;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 100;
+
   .brand__container {
     display: flex;
+    justify-content: center;
     color: #838f8f;
     .toggle {
       display: none;

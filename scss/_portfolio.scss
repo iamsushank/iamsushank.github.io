@@ -1,3 +1,15 @@
+#project--space{
+  // width: 100%;
+  display: block;
+  display: flex;
+  justify-content: center;
+  .flex--project{
+    // width: 50%;
+    display: block;
+    display: flex;
+    justify-content: center;
+  }
+}
 .portfolio {
   position: relative;
   .container {
@@ -84,4 +96,27 @@
       }
     }
   }
+}
+.stack--icons{
+  display: block;
+  display: flex;
+  gap: 1rem;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.git--stats{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.git--graph{
+  width: 100%;
+
+  img{
+    width: 100%;
+  }
+
 }

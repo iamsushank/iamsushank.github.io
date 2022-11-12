@@ -132,15 +132,29 @@ p {
   font-size: 1.5rem;
 }
 
+.nav_center {
+  display: center;
+  display: flex;
+  justify-content: center;
+}
+
 .navbar {
+  width: 70%;
+  display: block;
+  background-color: #0b0b0b;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: white;
-  padding: 2rem 0;
+  padding: 1rem 0;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 100;
 }
 .navbar .brand__container {
   display: flex;
+  justify-content: center;
   color: #838f8f;
 }
 .navbar .brand__container .toggle {
@@ -221,18 +235,35 @@ p {
   display: flex;
 }
 
+.nav_home_gap--filler {
+  height: 3rem;
+  padding: 2rem 0;
+}
+
+.home--center {
+  width: 100%;
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .hero {
+  width: 65%;
+  display: block;
   display: grid;
   grid-template-columns: 50% 50%;
-  overflow: hidden;
-  height: 60vh;
+  gap: 3rem;
+  justify-content: center;
 }
 .hero .content {
+  display: block;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   gap: 2rem;
+  width: 100%;
 }
 .hero .content .title h1 {
   background: var(--gradient);
@@ -241,17 +272,10 @@ p {
   font-size: 6vw;
 }
 .hero .image {
-  position: relative;
-  display: flex;
-  justify-content: right;
+  width: 100%;
 }
 .hero .image img {
-  position: absolute;
-  bottom: 0;
-  height: 55vh;
-  width: 25vw;
-  -o-object-fit: cover;
-     object-fit: cover;
+  width: 100%;
   border-radius: 2%;
 }
 
@@ -370,6 +394,17 @@ p {
   clip: unset;
 }
 
+#project--space {
+  display: block;
+  display: flex;
+  justify-content: center;
+}
+#project--space .flex--project {
+  display: block;
+  display: flex;
+  justify-content: center;
+}
+
 .portfolio {
   position: relative;
 }
@@ -435,6 +470,28 @@ p {
   top: -390%;
 }
 
+.stack--icons {
+  display: block;
+  display: flex;
+  gap: 1rem;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.git--stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.git--graph {
+  width: 100%;
+}
+.git--graph img {
+  width: 100%;
+}
+
 .services .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -489,6 +546,11 @@ p {
   padding-left: 1rem;
   padding-right: 1rem;
   height: auto;
+}
+.git_cal .js-calendar-graph {
+  width: 100%;
+  display: grid;
+  justify-content: center;
 }
 .git_cal .js-calendar-graph-svg {
   margin-top: 1rem;
@@ -649,11 +711,17 @@ footer .section .tags li:hover {
   .defaultMargin {
     margin: 0 10vw;
   }
+  .navbar {
+    width: 90%;
+    padding: 0px;
+    padding-top: 1.3rem;
+  }
   .navbar .brand__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
+    padding: 0rem 2rem;
     width: 100%;
   }
   .navbar .brand__container .toggle {
@@ -662,27 +730,53 @@ footer .section .tags li:hover {
   .navbar .links {
     display: none;
   }
+  .nav_home_gap--filler {
+    height: 2rem;
+    padding: 2rem 0;
+  }
+  .home--center {
+    width: 100%;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .hero {
-    margin: 0 10vw;
     display: flex;
     flex-direction: column-reverse;
-    height: 100%;
+    height: 80%;
     gap: 2rem;
   }
   .hero .content {
     align-items: center;
+  }
+  .hero .content .title {
+    display: block;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
   .hero .content .title h1 {
     font-size: 3rem;
   }
   .hero .image {
     position: initial;
+    width: 100%;
+    min-height: 75px;
+    display: flex;
+    justify-content: center;
   }
   .hero .image img {
     position: initial;
-    height: 100%;
+    height: auto;
+    min-height: 75px;
+    min-width: 200px;
+    max-width: 25rem;
     width: 100%;
-    border-radius: 30% 70% 70% 30%/60% 40% 60% 40%;
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
   }
   .about .title__container {
     display: block;
@@ -713,6 +807,13 @@ footer .section .tags li:hover {
   .skills .content {
     flex-direction: column;
   }
+  .portfolio .title__container {
+    width: 100%;
+    display: block;
+    display: grid;
+    justify-content: center;
+    padding: 0.7rem;
+  }
   .portfolio .container {
     grid-template-columns: 1fr;
   }
@@ -736,17 +837,16 @@ footer .section .tags li:hover {
     align-items: center;
   }
   .calendar {
-    width: auto;
-    height: auto;
+    width: 100%;
   }
   .calendar .ContributionCalendar-label {
     font-size: 10px;
   }
   .calendar .js-calendar-graph {
-    width: auto;
+    width: 100%;
   }
   .calendar .js-calendar-graph-svg {
-    width: 80%;
+    width: 100%;
   }
   .calendar .contrib-number {
     font-size: 10px;
@@ -757,16 +857,22 @@ footer .section .tags li:hover {
   .calendar .float-right {
     font-size: 11px;
   }
-  .calendar .contrib-column {
-    padding-left: 8px;
-    padding-right: 5px;
-  }
   .calendar .contrib-column > span + span + span {
     text-decoration: none;
     display: none;
   }
-  .calendar .position-relative {
-    margin-top: 20px;
+  .git--stats {
+    display: grid;
+    grid-area: 50% 50%;
+  }
+  .git--stats div {
+    width: 100%;
+  }
+  .git--stats div img {
+    width: 100%;
+  }
+  .calendar {
+    width: 100%;
   }
   .contact {
     flex-direction: column;
