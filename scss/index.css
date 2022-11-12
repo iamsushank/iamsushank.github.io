@@ -132,25 +132,20 @@ p {
   font-size: 1.5rem;
 }
 
-.nav_center {
-  display: center;
+.nav_gapfill {
+  width: 80%;
   display: flex;
   justify-content: center;
 }
 
 .navbar {
-  width: 70%;
+  width: 90%;
   display: block;
-  background-color: #0b0b0b;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: white;
   padding: 1rem 0;
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0;
-  z-index: 100;
 }
 .navbar .brand__container {
   display: flex;
@@ -233,6 +228,17 @@ p {
 }
 .responsive__navbar .links ul ul {
   display: flex;
+}
+
+#nav_center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #0b0b0b;
 }
 
 .nav_home_gap--filler {
@@ -705,16 +711,28 @@ footer .section .tags li:hover {
 }
 
 @media screen and (min-width: 280px) and (max-width: 1080px) {
-  body {
-    overflow-x: hidden;
-  }
   .defaultMargin {
     margin: 0 10vw;
+  }
+  .nav_center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #0b0b0b;
+  }
+  .nav_gapfill {
+    width: 80%;
+    display: flex;
+    justify-content: center;
   }
   .navbar {
     width: 90%;
     padding: 0px;
-    padding-top: 1.3rem;
+    padding: 1rem 0;
   }
   .navbar .brand__container {
     display: flex;

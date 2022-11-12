@@ -1,22 +1,18 @@
-.nav_center{
-  display: center;
+
+.nav_gapfill{
+  width: 80%;
   display: flex;
   justify-content: center;
 }
 .navbar {
-  width: 70%;
+  width: 90%;
   display: block;
-  background-color: #0b0b0b;
   display: flex;
   justify-content: space-between;
   // justify-content: center;
   align-items: center;
   color: white;
   padding: 1rem 0;
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0;
-  z-index: 100;
 
   .brand__container {
     display: flex;
@@ -104,4 +100,15 @@
       }
     }
   }
+}
+
+#nav_center{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #0b0b0b;
 }
