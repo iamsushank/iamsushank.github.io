@@ -338,6 +338,61 @@ p {
   font-size: 10rem;
 }
 
+.about_card {
+  position: relative;
+}
+.about_card .about_container {
+  display: flex;
+  color: white;
+  gap: 2rem;
+  justify-content: center;
+}
+.about_card .about_container .card__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background-color: #181818;
+  padding: 2rem;
+  text-align: center;
+}
+.about_card .about_container .card__container .about_image {
+  display: block;
+  width: 250px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 1px;
+  margin: 0 auto;
+}
+.about_card .about_container .card__container .about_image .about--filler {
+  width: 100%;
+}
+.about_card .about_container .card__container .about_image .about--filler > img {
+  width: 100%;
+}
+
+@media screen and (min-width: 280px) and (max-width: 1080px) {
+  #about-sec {
+    margin-bottom: 3rem;
+  }
+  .about--space .about_container {
+    display: flex;
+    flex-direction: column;
+  }
+  .about--space .about_container .card__container {
+    padding: 1rem;
+  }
+  .about--space .about_container .card__container .about_image {
+    width: 200px;
+  }
+  .about--space .about_container .card__container .about_image img:hover {
+    top: -240% !important;
+  }
+  .about--space .about_container .card__container:nth-of-type(2) .image img:hover {
+    top: -260%;
+  }
+}
 .skills .content {
   display: flex;
   justify-content: center;
