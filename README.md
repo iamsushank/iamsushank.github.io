@@ -16,6 +16,6 @@ This is a personal portfolio website for recruiter to know about me and contact 
 ## Overview of the site
 
 ![Screenshort](https://www.linkpicture.com/q/Sushank-Mandal.png)
-## Author
+## Author 
 
 > ### Sushank Mandal ([GitHub](https://github.com/sushank678))
