@@ -4,7 +4,7 @@
 This is a personal portfolio website for recruiter to know about me and contact me.
 
 
-## Technology used
+## Technology used 
 
 - HTML
 - CSS
