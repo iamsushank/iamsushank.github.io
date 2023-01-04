@@ -13,7 +13,7 @@ This is a personal portfolio website for recruiter to know about me and contact 
 - Bash
 - Github
 - Vs code
-## Overview of the site
+## Overview of the site 
 
 ![Screenshort](https://www.linkpicture.com/q/Sushank-Mandal.png)
 ## Author 
