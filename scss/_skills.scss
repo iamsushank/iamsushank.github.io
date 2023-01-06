@@ -59,12 +59,12 @@
 
 .two {
   .bar {
-    clip: unset;
+    clip: rect(0px, 100px, 100px, 19px);
   }
 }
 
 .four {
   .bar {
-    clip: unset;
+    clip: rect(25px, 100px, 100px, 0px);
   }
 }
