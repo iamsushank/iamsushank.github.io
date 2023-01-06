@@ -1,5 +1,5 @@
 
-# [Portfolio Website](https://sushank678.github.io/)
+# [Portfolio Website](https://iamsushank.github.io/)
 
 This is a personal portfolio website for recruiter to know about me and contact me.
 
@@ -18,4 +18,4 @@ This is a personal portfolio website for recruiter to know about me and contact 
 ![Screenshort](https://www.linkpicture.com/q/Sushank-Mandal.png)
 ## Author 
 
-> ### Sushank Mandal ([GitHub](https://github.com/sushank678))
+> ### Sushank Mandal ([GitHub](https://github.com/iamsushank))
