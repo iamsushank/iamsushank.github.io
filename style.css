@@ -440,6 +440,16 @@ strong { font-weight: 600; }
   transition: border-color 0.15s ease, transform 0.15s ease;
 }
 .contact a:hover { border-color: var(--accent); text-decoration: none; transform: translateY(-2px); }
+.email-item { position: relative; }
+.email-item a { padding-right: 84px; }
+.copy-btn {
+  position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+  font: 600 0.74rem var(--mono); color: var(--accent);
+  padding: 6px 11px; border-radius: 8px; cursor: pointer;
+  border: 1px solid var(--line-strong); background: var(--accent-soft);
+}
+.copy-btn:hover { border-color: var(--accent); }
+.copy-btn.done { color: #16a34a; border-color: #16a34a; }
 .contact .mono { font-size: 0.7rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
 
 .footer { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 28px; padding-bottom: 40px; margin-top: 40px; border-top: 1px solid var(--line); }

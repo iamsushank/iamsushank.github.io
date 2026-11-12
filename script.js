@@ -32,6 +32,29 @@
     if (e.target.tagName === "A") setMenu(false);
   });
 
+  // Copy email to clipboard
+  document.querySelectorAll(".copy-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var text = btn.getAttribute("data-copy");
+      function done(ok) {
+        btn.textContent = ok ? "Copied" : "Press ⌘C";
+        btn.classList.toggle("done", ok);
+        setTimeout(function () { btn.textContent = "Copy"; btn.classList.remove("done"); }, 1800);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
+      } else {
+        var ta = document.createElement("textarea");
+        ta.value = text; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
+        document.body.appendChild(ta); ta.select();
+        var ok = false;
+        try { ok = document.execCommand("copy"); } catch (e) {}
+        document.body.removeChild(ta);
+        done(ok);
+      }
+    });
+  });
+
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
