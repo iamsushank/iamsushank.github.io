@@ -58,6 +58,161 @@
     });
   });
 
+  // Contact pop-up: pre-filled email draft and LinkedIn note
+  (function () {
+    var modal = document.getElementById("contact-modal");
+    if (!modal || typeof modal.showModal !== "function") return; // old browsers keep plain links
+
+    var TO = "mandal678@gmail.com";
+    var PROFILE = "https://www.linkedin.com/in/iamsushank/";
+    var NOTE_LIMIT = 200;
+    var form = document.getElementById("contact-form");
+    var f = form.elements;
+    var toast = document.getElementById("modal-toast");
+    var count = document.getElementById("li-count");
+    var gmail = document.getElementById("send-gmail");
+    var outlook = document.getElementById("send-outlook");
+    var mailapp = document.getElementById("send-mailapp");
+    var roleOnly = form.querySelector(".role-only");
+
+    function val(name) { return (f[name].value || "").trim(); }
+
+    function templates() {
+      var name = val("name"), from = val("from"), company = val("company"), role = val("role");
+      var reason = f.reason.value;
+      var at = company ? " at " + company : "";
+      var subject, opener, middle, ask, note;
+
+      if (reason === "role") {
+        subject = (role || "Software engineering") + " opportunity" + at;
+        opener = "I came across your portfolio and would like to talk with you about " +
+          (role ? "the " + role + " role" : "a software engineering role") + at + ".";
+        middle = "[A few lines about the role, team, tech stack, location and compensation range]";
+        ask = "Would you be open to a quick call this week?";
+        note = "Hi Sushank, I'm " + (name || "[your name]") + (company ? " from " + company : "") +
+          ". I saw your portfolio and would like to talk about " + (role ? "a " + role + " role" : "an engineering role") + ". Happy to connect!";
+      } else if (reason === "freelance") {
+        subject = "Project collaboration" + (company ? " with " + company : "");
+        opener = "I came across your portfolio and have a project I'd like to discuss with you.";
+        middle = "[What you're building, the timeline, and how you'd like Sushank to help]";
+        ask = "Would you be up for a short call to talk it through?";
+        note = "Hi Sushank, I'm " + (name || "[your name]") + (company ? " from " + company : "") +
+          ". I have a project I'd like to discuss with you. Would love to connect!";
+      } else {
+        subject = "Hello from " + (name || "a visitor to your portfolio");
+        opener = "I came across your portfolio and wanted to say hello.";
+        middle = "[Your message]";
+        ask = "";
+        note = "Hi Sushank, I'm " + (name || "[your name]") + (company ? " from " + company : "") +
+          ". I enjoyed your portfolio and would love to connect!";
+      }
+
+      var sign = [name || "[Your name]", company, from].filter(Boolean).join("\n");
+      var body = "Hi Sushank,\n\n" + opener + "\n\n" + middle + "\n\n" + (ask ? ask + "\n\n" : "") +
+        (reason === "chat" ? "Cheers,\n" : "Best regards,\n") + sign;
+      return { subject: subject, body: body, note: note };
+    }
+
+    function refresh() {
+      roleOnly.hidden = f.reason.value !== "role";
+      var t = templates();
+      if (!f.subject.dataset.edited) f.subject.value = t.subject;
+      if (!f.body.dataset.edited) f.body.value = t.body;
+      if (!f.note.dataset.edited) f.note.value = t.note;
+      updateLinks();
+    }
+
+    function updateLinks() {
+      var s = encodeURIComponent(f.subject.value);
+      var b = encodeURIComponent(f.body.value);
+      gmail.href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + TO + "&su=" + s + "&body=" + b;
+      outlook.href = "https://outlook.office.com/mail/deeplink/compose?to=" + TO + "&subject=" + s + "&body=" + b;
+      mailapp.href = "mailto:" + TO + "?subject=" + s + "&body=" + b;
+      var n = f.note.value.length;
+      count.textContent = n + "/" + NOTE_LIMIT;
+      count.classList.toggle("over", n > NOTE_LIMIT);
+    }
+
+    function say(msg) {
+      toast.textContent = msg;
+      clearTimeout(say.t);
+      say.t = setTimeout(function () { toast.textContent = ""; }, 3500);
+    }
+
+    function copy(text, okMsg, syncFirst) {
+      function legacyCopy() {
+        var ta = document.createElement("textarea");
+        ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+        modal.appendChild(ta); ta.select();
+        var ok = false;
+        try { ok = document.execCommand("copy"); } catch (e) {}
+        modal.removeChild(ta);
+        return ok;
+      }
+      function legacy() {
+        say(legacyCopy() ? okMsg : "Couldn't copy automatically. Select the text and copy it.");
+      }
+      // Copy synchronously when a new tab is about to take focus.
+      if (syncFirst && legacyCopy()) { say(okMsg); return; }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { say(okMsg); }, legacy);
+      } else {
+        legacy();
+      }
+    }
+
+    function setTab(name) {
+      form.querySelectorAll("[data-tab]").forEach(function (b) {
+        b.setAttribute("aria-selected", String(b.getAttribute("data-tab") === name));
+      });
+      document.getElementById("pane-email").hidden = name !== "email";
+      document.getElementById("pane-linkedin").hidden = name !== "linkedin";
+    }
+
+    function open(tab) {
+      setTab(tab || "email");
+      refresh();
+      modal.showModal();
+      document.body.classList.add("modal-open");
+      f.name.focus();
+    }
+
+    document.querySelectorAll("[data-open-contact]").forEach(function (el) {
+      el.addEventListener("click", function (e) {
+        e.preventDefault();
+        open(el.getAttribute("data-open-contact"));
+      });
+    });
+
+    form.querySelectorAll("[data-tab]").forEach(function (b) {
+      b.addEventListener("click", function () { setTab(b.getAttribute("data-tab")); });
+    });
+
+    ["name", "from", "company", "role"].forEach(function (n) { f[n].addEventListener("input", refresh); });
+    f.reason.addEventListener("change", function () {
+      delete f.subject.dataset.edited; delete f.body.dataset.edited; delete f.note.dataset.edited;
+      refresh();
+    });
+    ["subject", "body", "note"].forEach(function (n) {
+      f[n].addEventListener("input", function () { f[n].dataset.edited = "1"; updateLinks(); });
+    });
+
+    gmail.addEventListener("click", function () { say("Draft opened in Gmail. Review it and press Send."); });
+    outlook.addEventListener("click", function () { say("Draft opened in Outlook. Review it and press Send."); });
+    document.getElementById("copy-email-msg").addEventListener("click", function () {
+      copy("To: " + TO + "\nSubject: " + f.subject.value + "\n\n" + f.body.value, "Message copied.");
+    });
+    document.getElementById("send-linkedin").addEventListener("click", function () {
+      copy(f.note.value, "Note copied. On LinkedIn choose Connect, then Add a note, and paste.", true);
+      window.open(PROFILE, "_blank", "noopener");
+    });
+
+    form.addEventListener("submit", function (e) { e.preventDefault(); });
+    modal.querySelector("[data-close]").addEventListener("click", function () { modal.close(); });
+    modal.addEventListener("click", function (e) { if (e.target === modal) modal.close(); });
+    modal.addEventListener("close", function () { document.body.classList.remove("modal-open"); });
+  })();
+
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
