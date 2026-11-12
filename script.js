@@ -6,8 +6,8 @@
     if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
   } catch (e) {}
 
-  var themeBtn = document.getElementById("theme-toggle");
-  themeBtn.addEventListener("click", function () {
+  // Theme toggle
+  document.getElementById("theme-toggle").addEventListener("click", function () {
     var current = root.getAttribute("data-theme");
     if (!current) {
       current = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
@@ -17,6 +17,7 @@
     try { localStorage.setItem("theme", next); } catch (e) {}
   });
 
+  // Mobile menu
   var menuBtn = document.getElementById("menu-toggle");
   var links = document.getElementById("nav-links");
   function setMenu(open) {
@@ -33,4 +34,37 @@
 
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
+
+  if (!("IntersectionObserver" in window)) return;
+
+  // Reveal on scroll
+  root.classList.add("js");
+  var revealObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in");
+        revealObs.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
+  document.querySelectorAll(".reveal").forEach(function (el, i) {
+    el.style.transitionDelay = (i % 4) * 60 + "ms";
+    revealObs.observe(el);
+  });
+
+  // Highlight the nav link for the section in view
+  var navMap = {};
+  links.querySelectorAll("a").forEach(function (a) { navMap[a.getAttribute("href").slice(1)] = a; });
+  var navObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      Object.keys(navMap).forEach(function (id) { navMap[id].classList.remove("active"); });
+      var link = navMap[entry.target.id];
+      if (link) link.classList.add("active");
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  Object.keys(navMap).forEach(function (id) {
+    var section = document.getElementById(id);
+    if (section) navObs.observe(section);
+  });
 })();

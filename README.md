@@ -6,8 +6,9 @@ Plain HTML, CSS and a few lines of JavaScript. No build step. Served by GitHub P
 
 - `index.html`: page content
 - `style.css`: styles (light and dark themes, mobile layout)
-- `script.js`: theme toggle and mobile menu
-- `assets/Sushank_Mandal_Resume.pdf`: downloadable resume
+- `script.js`: theme toggle, mobile menu, scroll reveal and active-section nav
+
+Resume: [Google Drive](https://drive.google.com/drive/u/0/folders/14yF6ST4tKyA6DpUMZ15WVsuCv-0r9ZFn)
 
 Run locally:
 
