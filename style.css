@@ -226,6 +226,8 @@ strong { font-weight: 600; }
 .socials a:hover { color: var(--ink); border-color: var(--accent); transform: translateY(-2px); }
 .socials svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .socials svg .fill { fill: currentColor; stroke: none; }
+.socials { flex-wrap: wrap; }
+.socials a.handle { width: auto; display: inline-flex; gap: 8px; padding: 0 13px; font: 600 0.8rem var(--mono); }
 
 /* terminal */
 .terminal {
