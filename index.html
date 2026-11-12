@@ -1,787 +1,197 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="scss/index.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <title>Sushank Mandal</title>
-    <link
-      rel="icon"
-      href="https://cdn.iconscout.com/icon/free/png-256/business-portfolio-1760227-1497578.png"
-    />
-  </head>
-  <body>
-    <div class="scrollToTop">
-      <i class="fas fa-angle-up"></i>
-    </div>
-    <div class="nav_center" id="nav_center">
-      <div class="nav_gapfill">
-        <nav class="navbar">
-          <div class="brand__container">
-            <div class="brand">
-              <h2>Software Engineer</h2>
-            </div>
-            <div class="toggle">
-              <i class="fas fa-bars"></i>
-            </div>
-          </div>
-          <div class="links">
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about-sec">About</a></li>
-              <li><a href="#skills">Skills</a></li>
-              <li><a href="#portfolio">Projects</a></li>
-              <li><a href="#contact">Contact</a></li>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sushank Mandal · Backend Engineer (Go)</title>
+  <meta name="description" content="Sushank Mandal, Software Development Engineer 2 at Omniful Technologies. Backend engineer building high-throughput, multi-tenant distributed systems in Go." />
+  <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)" />
+  <meta property="og:title" content="Sushank Mandal · Backend Engineer (Go)" />
+  <meta property="og:description" content="High-throughput, multi-tenant distributed systems in Go. MongoDB, Kafka, AWS." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314161a'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-weight='700' font-size='28' fill='%237dd3fc'%3ESM%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
 
-              <button>
-                <i class="fa-solid fa-file"></i>
-                <a
-                  href="https://drive.google.com/uc?export=download&id=1-bGn_m43aamvVGv0GkRqjc7Z5TDbnlVM"
-                  onclick="window.open('https://drive.google.com/file/d/1-bGn_m43aamvVGv0GkRqjc7Z5TDbnlVM/view?usp=sharing')"
-                  style="
-                    text-decoration: none;
-                    color: #838f8f;
-                    text-decoration-color: #838f8f;
-                    target: _blank;
-                  "
-                >
-                  <strong>Resume</strong>
-                </a>
-              </button>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </div>
-
-    <div class="responsive__navbar">
-      <div class="brand">
-        <h2>Software Engineer</h2>
-      </div>
-      <div class="links">
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about-sec">About</a></li>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">sushank<span>.</span>mandal</a>
+      <nav aria-label="Sections">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#work">Projects</a></li>
           <li><a href="#skills">Skills</a></li>
-          <li><a href="#portfolio">Projects</a></li>
+          <li><a href="#education">Education</a></li>
           <li><a href="#contact">Contact</a></li>
-          <button>
-            <i class="fa-solid fa-file"></i>
-            <a
-              onclick="window.open('https://drive.google.com/file/d/1-bGn_m43aamvVGv0GkRqjc7Z5TDbnlVM/view?usp=sharing')"
-              href="https://drive.google.com/uc?export=download&id=1-bGn_m43aamvVGv0GkRqjc7Z5TDbnlVM"
-              style="
-                text-decoration: none;
-                color: #838f8f;
-                text-decoration-color: #838f8f;
-                target: _blank;
-              "
-            >
-              <strong>Resume</strong>
-            </a>
-          </button>
         </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle dark mode">
+          <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
       </div>
     </div>
+  </header>
 
-    <div class="nav_home_gap--filler"></div>
-
-    <div class="home--center">
-      <section class="hero" id="home">
-        <div class="content">
-          <div class="title">
-            <h1>Hello World</h1>
-            <h1>I'm Sushank</h1>
-          </div>
-          <button>
-            <i class="fa-solid fa-file"></i>
-            <a
-              onclick="window.open('https://drive.google.com/file/d/1-bGn_m43aamvVGv0GkRqjc7Z5TDbnlVM/view?usp=sharing')"
-              href="https://drive.google.com/uc?export=download&id=1-bGn_m43aamvVGv0GkRqjc7Z5TDbnlVM"
-              style="
-                text-decoration: none;
-                color: #838f8f;
-                text-decoration-color: #838f8f;
-                target: _blank;
-              "
-            >
-              <strong>Get Resume</strong>
-            </a>
-          </button>
-        </div>
-        <div class="image">
-          <img src="./assets/hero.jpg" alt="" />
-        </div>
-      </section>
-    </div>
-
-    <div class="spring right" id="spring1">
-      <div class="coil"></div>
-      <div class="bar gradient"></div>
-    </div>
-    <!--  -->
-    <div id="about"></div>
-    <section class="about" id="about-sec">
-      <div class="title__container">
-        <h2>About me</h2>
-        <p class="discription">
-          Results-driven computer science graduate passionate about developing
-          userfriendly software applications. Excellent problem-solving skills
-          and ability to perform well in a team. Seeking to help Companies to
-          build their product as a software engineer, as well as grow and
-          develop my own skills as a coder.
-        </p>
+  <main id="main">
+    <section class="hero wrap" id="top">
+      <p class="eyebrow">Software Development Engineer 2 · Omniful Technologies · Gurugram</p>
+      <h1>Sushank Mandal</h1>
+      <p class="lede">Backend engineer with 3+ years building high-throughput, multi-tenant distributed systems in <strong>Go</strong>. I cut search p95 latency from 900ms to 30ms at 800K+ daily requests, built a MongoDB data-access library now standard across 12+ microservices, and lead a 5-engineer pod. Open source contributor to the Zed editor.</p>
+      <div class="cta">
+        <a class="btn primary" href="assets/Sushank_Mandal_Resume.pdf" download>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
+          Download resume
+        </a>
+        <a class="btn" href="mailto:mandal678@gmail.com">Email me</a>
       </div>
+      <dl class="stats">
+        <div><dt>p95 search latency</dt><dd>900ms → 30ms</dd></div>
+        <div><dt>daily search requests</dt><dd>800K+</dd></div>
+        <div><dt>services on mongodm</dt><dd>12+</dd></div>
+        <div><dt>rule executions / day</dt><dd>50K+</dd></div>
+      </dl>
     </section>
 
-    <div class="project--space about--space" id="about--space">
-      <div class="flex--project">
-        <section class="about_card defaultMargin">
-          <div class="about_container" id="about_container">
-            <div class="design">
-              <div class="background"></div>
-              <div class="card__container">
-                <h3>Masai</h3>
-                <a
-                  href="https://www.masaischool.com/"
-                  style="text-decoration: none"
-                  target="_blank"
-                >
-                  <div class="about_image">
-                    <div class="about--filler">
-                      <img src="assets/masailogo.jpg" alt="Masai Image" />
-                    </div>
-                  </div>
-                </a>
-                <div class="sub-logo-sec">
-                  <div class="name_course">
-                    <div style="color: white">Full Stack Web Development</div>
-                    <p>Full Time Course(2022)</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <section class="section wrap" id="experience">
+      <h2 class="sec-title"><span>01</span>Experience</h2>
 
-            <div class="design right">
-              <div class="background"></div>
-              <div class="card__container">
-                <h3>NMIET</h3>
-                <a
-                  href="http://nmiet.ac.in/"
-                  style="text-decoration: none"
-                  target="_blank"
-                >
-                  <div class="about_image">
-                    <div class="about--filler">
-                      <img src="assets/nmietlogo.png" alt="NMIET logo" />
-                    </div>
-                  </div>
-                </a>
-                <div class="sub-logo-sec">
-                  <div class="name_course">
-                    <div style="color: white">
-                      Computer Science and Engineer
-                    </div>
-                    <p>Bachelor of Technology(2020)</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <article class="job">
+        <header class="job-head">
+          <div>
+            <h3>Omniful Technologies</h3>
+            <p class="muted">Multi-tenant SaaS platform for order, warehouse and transport management</p>
           </div>
-        </section>
-      </div>
-    </div>
+          <p class="mono muted">Gurugram, India</p>
+        </header>
 
-    <!-- <section class="services defaultMargin" id="services">
-      <div class="title__container">
-        <h2>Satistics</h2>
-        <p>More about my learnings.</p>
-      </div>
-      <div class="container">
-        <div class="design">
-          <div class="background"></div>
-          <div class="service">
-            <div class="image">
-              <img src="assets/masailogo.jpg" alt="Masai Image">
-            </div>
-            <h3>1200+</h3>
-            <p>
-              Hours of Coding
-            </p>
+        <div class="role">
+          <div class="role-head">
+            <h4>Software Development Engineer 2</h4>
+            <span class="mono muted">Aug 2024 – Present</span>
           </div>
+          <ul>
+            <li>Led migration of OMS order search to MongoDB Atlas Search: index mappings, custom analyzers, fuzzy matching and cursor-based pagination across multi-tenant data, <strong>cutting p95 latency from 900ms to 30ms at 800K+ daily requests</strong>.</li>
+            <li>Authored <strong>mongodm</strong>, an internal Go MongoDB library with type-safe generic collections, fluent query builders and enforced tenant scoping; now the standard data layer for <strong>~30 engineers across 12+ microservices</strong>, eliminating cross-tenant query bugs.</li>
+            <li>Architected a rule engine running <strong>50K+ executions/day</strong>: a declarative DSL that lets tenants automate routing, segregation and SLA-based exception handling across OMS and WMS, replacing hardcoded service logic.</li>
+            <li>Decoupled order creation from fulfillment to launch shipment-only orders, with new order states and backward-compatible event contracts; <strong>20+ logistics-only tenants</strong> now run <strong>5K+ orders</strong> on this path.</li>
+            <li>Built the networking layer (Traefik routing, CoreDNS service discovery) for the company's local-development platform, <strong>cutting environment setup from days to under an hour</strong>.</li>
+            <li>Lead a <strong>5-engineer pod</strong> covering design reviews, code reviews, onboarding and production debugging; mentored <strong>7+ engineers</strong> to independent feature ownership.</li>
+          </ul>
         </div>
-        <div class="design right">
-          <div class="background"></div>
-          <div class="service">
-            <div class="image">
-              <img src="assets/nmietlogo.png" alt="NMIET logo">
-            </div>
-            <h3>15+</h3>
-            <p>
-              Projects completed.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section> -->
 
-    <!--  -->
-    <div class="spring" id="springL1">
-      <div class="coil"></div>
-      <div class="bar gradient"></div>
-    </div>
-    <section class="skills defaultMargin" id="skills">
-      <div class="title__container">
-        <h2>Main Skills</h2>
-        <p>
-          I see all types of projects as if they were mine. This brings me
-          closer to projects with much more confidence and commitment.
-        </p>
-      </div>
-      <div class="content">
-        <div class="skill">
-          <div class="container">
-            <div class="circular">
-              <div class="inner"></div>
-              <div class="number">42%</div>
-              <div class="circle">
-                <div class="bar left">
-                  <div class="progress"></div>
-                </div>
-                <div class="bar right">
-                  <div class="progress"></div>
-                </div>
-              </div>
-            </div>
+        <div class="role">
+          <div class="role-head">
+            <h4>Software Development Engineer 1</h4>
+            <span class="mono muted">Feb 2023 – Aug 2024</span>
           </div>
-          <h3>Frontend Development</h3>
+          <ul>
+            <li>Rebuilt catalog duplicate detection using MongoDB <code>explain()</code> analysis, replacing repeated re-aggregation with a streaming cursor pipeline; <strong>cut execution from 17s to 6.5s on 600K+ documents</strong> and ended recurring CPU-saturation incidents.</li>
+            <li>Designed an event-driven bulk SKU pipeline on Kafka and AWS SQS with Redis distributed locks, idempotent consumers and event-key deduplication, handling <strong>50K+ SKUs per upload</strong> under at-least-once delivery with zero duplicate writes.</li>
+            <li>Cut "city not found" shipment failures by <strong>80%</strong> and related support tickets by <strong>90%</strong> with a tenant-aware city-resolution service: a fallback chain across internal mappings, tenant overrides and Google Geocoding, backed by Redis caching.</li>
+            <li>Instrumented Prometheus and Grafana across <strong>200+ SQS queues</strong> and DLQs with alerts on queue depth, consumer lag and DLQ rate, <strong>halving incident MTTR</strong> across the on-call rotation.</li>
+          </ul>
         </div>
-        <div class="skill">
-          <div class="container two">
-            <div class="circular">
-              <div class="inner"></div>
-              <div class="number">80%</div>
-              <div class="circle">
-                <div class="bar left">
-                  <div class="progress"></div>
-                </div>
-                <div class="bar right">
-                  <div class="progress"></div>
-                </div>
-              </div>
-            </div>
+      </article>
+
+      <article class="job">
+        <header class="job-head">
+          <div>
+            <h3>Thomson Digital</h3>
+            <p class="muted">Editorial and publishing services for global education and media clients</p>
           </div>
-          <h3>Backend Development</h3>
-        </div>
-        <div class="skill">
-          <div class="container three">
-            <div class="circular">
-              <div class="inner"></div>
-              <div class="number">34%</div>
-              <div class="circle">
-                <div class="bar left">
-                  <div class="progress"></div>
-                </div>
-                <div class="bar right">
-                  <div class="progress"></div>
-                </div>
-              </div>
-            </div>
+          <p class="mono muted">Noida, India</p>
+        </header>
+        <div class="role">
+          <div class="role-head">
+            <h4>Project Manager</h4>
+            <span class="mono muted">Feb 2020 – Feb 2022</span>
           </div>
-          <h3>App Development</h3>
+          <ul>
+            <li>Owned end-to-end delivery of editorial and publishing projects for Elsevier journals, running parallel workstreams.</li>
+          </ul>
         </div>
-        <div class="skill">
-          <div class="container four">
-            <div class="circular">
-              <div class="inner"></div>
-              <div class="number">70%</div>
-              <div class="circle">
-                <div class="bar left">
-                  <div class="progress"></div>
-                </div>
-                <div class="bar right">
-                  <div class="progress"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <h3>Fullstack Development</h3>
-        </div>
-      </div>
+      </article>
     </section>
-    <div class="spring right" id="spring2">
-      <div class="coil"></div>
-      <div class="bar gradient"></div>
-    </div>
 
-    <!-- Project Section -->
-    <div class="project--space" id="project--space">
-      <div class="flex--project">
-        <section class="portfolio defaultMargin" id="portfolio">
-          <div class="title__container">
-            <h2>Projects</h2>
-            <p>
-              I have already built these amazing things with love and
-              dedication.
-            </p>
-          </div>
-          <div class="container">
-            <div class="design">
-              <div class="background"></div>
-              <div class="portfolio__container">
-                <h3>Flash Pay</h3>
-                <p>
-                  Build RESTful Api for FlashPay application by which user can
-                  send and receive money, pay different bills, view transaction
-                  details, add balance to wallet etc.
-                </p>
-                <a href="#" style="text-decoration: none" target="_blank">
-                  <div class="image">
-                    <img src="./assets/Swagger-UI.png" alt="" />
-                  </div>
-                </a>
-
-                <!-- Project section --- icons from fontawesome -->
-                <div class="stack--icons">
-                  <p>SpringBoot</p>
-                  <p>MySql</p>
-                  <p>Hibernate</p>
-                </div>
-
-                <div class="button">
-                  <button class="button_tag">
-                    <a
-                      class="link_button"
-                      href="http://sushankpay.me/swagger-ui/"
-                      target="_blank"
-                      >Visit</a
-                    >
-                  </button>
-                  <button class="button_tag">
-                    <a
-                      class="link_button"
-                      href="https://github.com/akbora1994/FlashPay"
-                      target="_blank"
-                      >GitHub</a
-                    >
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="portfolio__container">
-              <h3>MyHours - Clone</h3>
-              <p>
-                Cloud based software where user can track time, get laps,
-                maintain client details and can purchase plan according to the
-                requirement.
-              </p>
-
-              <a
-                href="https://silver-sfogliatella-0c9664.netlify.app/"
-                style="text-decoration: none"
-                target="_blank"
-              >
-                <div class="image">
-                  <img src="./assets/myhours.png" alt="" />
-                </div>
-              </a>
-
-              <!-- Project section --- icons from fontawesome -->
-              <div class="stack--icons">
-                <p>JavaScript</p>
-                <p>HTML</p>
-                <p>CSS</p>
-              </div>
-
-              <div class="button">
-                <button class="button_tag">
-                  <a
-                    class="link_button"
-                    href="https://silver-sfogliatella-0c9664.netlify.app/"
-                    target="_blank"
-                    >Visit</a
-                  >
-                </button>
-                <button class="button_tag">
-                  <a
-                    class="link_button"
-                    href="https://github.com/iamsushank/mutual-cart-3380"
-                    target="_blank"
-                    >GitHub</a
-                  >
-                </button>
-              </div>
-            </div>
-            <div class="design right">
-              <div class="background"></div>
-              <div class="portfolio__container">
-                <h3>Best Buy - Clone</h3>
-                <p>
-                  Ecommerce website deals with sale of electronic products. User
-                  can shop items from variety of products according to
-                  requirement.
-                </p>
-
-                <a
-                  href="http://bestbuy-in.netlify.com/"
-                  style="text-decoration: none"
-                  target="_blank"
-                >
-                  <div class="image">
-                    <img src="./assets/bestbuy.png" alt="" />
-                  </div>
-                </a>
-
-                <!-- Project section --- icons from fontawesome -->
-                <div class="stack--icons">
-                  <p>JavaScript</p>
-                  <p>HTML</p>
-                  <p>CSS</p>
-                </div>
-
-                <div class="button">
-                  <button class="button_tag">
-                    <a
-                      class="link_button"
-                      href="http://bestbuy-in.netlify.com/"
-                      target="_blank"
-                      >Visit</a
-                    >
-                  </button>
-                  <button class="button_tag">
-                    <a
-                      class="link_button"
-                      href="https://github.com/mayurisamanta/Best-Buyers"
-                      target="_blank"
-                      >GitHub</a
-                    >
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-
-    <section class="services defaultMargin" id="services"></section>
-
-    <div class="spring" id="springL2">
-      <div class="coil"></div>
-      <div class="bar gradient"></div>
-    </div>
-    <section class="services defaultMargin" id="services">
-      <div class="title__container">
-        <h2>Tools</h2>
-        <p>Tools and Technologies I'm efficient with</p>
-      </div>
-
-      <div class="container">
-        <div class="design">
-          <div class="background"></div>
-          <div class="service">
-            <i class="fa-solid fa-code"></i>
-            <h3>Spring Tool Suite</h3>
-          </div>
-        </div>
-        <div class="service">
-          <i class="fa-brands fa-github"></i>
-          <h3>GitHub</h3>
-        </div>
-        <div class="design right">
-          <div class="background"></div>
-          <div class="service">
-            <i class="fa-brands fa-git-alt"></i>
-            <h3>Git</h3>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="spring right" id="spring3">
-      <div class="coil"></div>
-      <div class="bar gradient"></div>
-    </div>
-
-    <section class="services defaultMargin" id="services">
-      <div class="title__container">
-        <h2>Tech Stack</h2>
-        <p>These are the art I posses.</p>
-      </div>
-      <div class="container">
-        <div class="design">
-          <div class="background"></div>
-          <div class="service">
-            <i class="fa-brands fa-java"></i>
-            <h3>Java</h3>
-            <p>
-              Skilled Java developer, Utilized IO package to develop duplicate
-              phone number detector and eliminator.
-            </p>
-          </div>
-        </div>
-        <div class="service">
-          <i class="fa-solid fa-leaf"></i>
-          <h3>Spring Framework</h3>
-          <p>
-            In depth knowledge of spring framework including Spring Core, Spring
-            Boot, Spring MVC, etc.
+    <section class="section wrap" id="work">
+      <h2 class="sec-title"><span>02</span>Projects &amp; open source</h2>
+      <div class="cards">
+        <article class="card">
+          <p class="tag mono">Project · Go, PostgreSQL</p>
+          <h3>AI Webhook Ingestor</h3>
+          <p>A webhook ingestion platform for logistics and finance vendors. Sub-second acknowledgements via a split ingest/process path, a Postgres work queue (<code>FOR UPDATE SKIP LOCKED</code>) with retries and dead-lettering, and schema-constrained LLM normalization (OpenAI, Ollama) of arbitrary vendor payloads, tolerating out-of-order delivery.</p>
+          <p class="links">
+            <a href="https://webhookingestor.online/" target="_blank" rel="noopener">Live site ↗</a>
+            <a href="https://github.com/iamsushank/webhook-ingestor" target="_blank" rel="noopener">Source ↗</a>
           </p>
-        </div>
-        <div class="service">
-          <i class="fa-solid fa-database"></i>
-          <h3>DBMS</h3>
-          <p>
-            Solid knowledge of Relational Database Management System, proficient
-            in MySql.
+        </article>
+        <article class="card">
+          <p class="tag mono">Open source contribution</p>
+          <h3>Zed Editor</h3>
+          <p>Fixed Cmd/Ctrl+F search in the debugger terminal panel, closing long-standing issue #38409: added the search bar to debugger panes, made the terminal view searchable, and routed search actions to the active pane, with a regression test.</p>
+          <p class="links">
+            <a href="https://github.com/zed-industries/zed/pull/56863" target="_blank" rel="noopener">Pull request #56863 ↗</a>
           </p>
-        </div>
-
-        <div class="service">
-          <i class="fa-brands fa-css3-alt"></i>
-          <h3>CSS</h3>
-          <p>
-            Ability to style attractive webpage using css, designed 15+ projects
-            user interface.
-          </p>
-        </div>
-
-        <div class="service">
-          <i class="fa-solid fa-code"></i>
-          <h3>HTML</h3>
-          <p>Build several projects using semantic tags and readable code.</p>
-        </div>
-
-        <div class="design right">
-          <div class="background"></div>
-          <div class="service">
-            <i class="fa-brands fa-square-js"></i>
-            <h3>JavaScript</h3>
-            <p>
-              Highly proficient in Js with more than ten projects, clear
-              understanding of Callback hell, Closures, this, Asynchronous Js,
-              etc.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="spring" id="springL2">
-      <div class="coil"></div>
-      <div class="bar gradient"></div>
-    </div>
-
-    <section class="git_cal defaultMargin">
-      <h2 class="git_head" id="git">Github Contribution</h2>
-
-      <div class="git--stats">
-        <div>
-          <img
-            alt="Sushank Mandal's Github Stats"
-            src="https://github-readme-stats.vercel.app/api?username=iamsushank&show_icons=true&count_private=true&theme=react&hide_border=true&bg_color=181818"
-          />
-        </div>
-        <br />
-
-        <div>
-          <img
-            title="🔥 Get streak stats for your profile at git.io/streak-stats"
-            alt="Sushank Mandal's streak"
-            src="https://github-readme-streak-stats.herokuapp.com/?user=iamsushank&theme=black-ice&hide_border=true&stroke=0000&background=181818"
-          />
-        </div>
-      </div>
-
-      <br />
-
-      <div class="calendar">
-        <!-- Loading stuff -->
-        Loading the data just for you.
+        </article>
       </div>
     </section>
 
-    <div class="spring right" id="spring3">
-      <div class="coil"></div>
-      <div class="bar gradient"></div>
-    </div>
-
-    <section class="languages defaultMargin">
-      <div class="container">
-        <div class="language">
-          <img
-            src="assets/kisspng-java-runtime-environment-programming-language-prog-java-5b16ff20a1e683.5082141715282337606632.png"
-            alt=""
-          />
-        </div>
-        <div class="language">
-          <img src="assets/spring.png" alt="" />
-        </div>
-        <div class="language">
-          <img src="assets/sql.png" alt="" />
-        </div>
+    <section class="section wrap" id="skills">
+      <h2 class="sec-title"><span>03</span>Skills</h2>
+      <div class="skills">
+        <div><h3>Languages</h3><ul class="chips"><li class="hot">Go (primary)</li><li>SQL</li><li>Python</li><li>JavaScript</li></ul></div>
+        <div><h3>Data &amp; messaging</h3><ul class="chips"><li>MongoDB</li><li>Atlas Search</li><li>PostgreSQL</li><li>Redis</li><li>Apache Kafka</li><li>AWS SQS</li></ul></div>
+        <div><h3>Cloud &amp; infrastructure</h3><ul class="chips"><li>AWS (ECS, SQS, S3, Lambda, CloudWatch)</li><li>Docker</li><li>Kubernetes</li><li>Terraform</li><li>CI/CD</li></ul></div>
+        <div><h3>Observability</h3><ul class="chips"><li>Prometheus</li><li>Grafana</li><li>New Relic</li><li>OpenTelemetry</li><li>Distributed tracing</li></ul></div>
+        <div><h3>Architecture</h3><ul class="chips"><li>Microservices</li><li>Event-driven systems</li><li>Multi-tenancy</li><li>Idempotency</li><li>REST &amp; gRPC API design</li></ul></div>
+        <div><h3>Testing</h3><ul class="chips"><li>Go testing</li><li>testify</li><li>Testcontainers</li><li>Integration &amp; load testing</li></ul></div>
+        <div><h3>AI</h3><ul class="chips"><li>LLM integration (OpenAI, Ollama)</li><li>MCP</li></ul></div>
       </div>
     </section>
 
-    <div class="spring" id="springL2">
-      <div class="coil"></div>
-      <div class="bar gradient"></div>
-    </div>
-
-    <section class="contact defaultMargin" id="contact">
-      <div class="left">
-        <div class="title">
-          <div class="bar"></div>
-          <h3>Let's Talk?</h3>
-          <p>
-            Don't wait until tommorow. Let's talk today and learn how to start
-            leveraging your business.
-          </p>
-        </div>
-        <div class="form">
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
-          <input type="tel" placeholder="Number" />
-          <button>Contact</button>
-        </div>
-      </div>
-      <div class="right">
-        <img src="assets/cse.jpg" alt="" />
-      </div>
+    <section class="section wrap" id="education">
+      <h2 class="sec-title"><span>04</span>Education</h2>
+      <ul class="edu">
+        <li>
+          <div><h3>Masai School, Bengaluru</h3><p class="muted">Full-Stack Web Development</p></div>
+          <span class="mono muted">2022 – 2023</span>
+        </li>
+        <li>
+          <div><h3>NM Institute of Engineering and Technology, Bhubaneswar</h3><p class="muted">B.Tech, Computer Science</p></div>
+          <span class="mono muted">2016 – 2020</span>
+        </li>
+      </ul>
     </section>
-    <footer class="footer" id="footer">
-      <div class="section">
-        <div class="brand">
-          <h2>Portfolio.</h2>
-        </div>
-        <p>
-          Personal portfolio, build with passion and dedication to achieve pixel
-          perfect perfection.
-        </p>
-        <ul class="social">
-          <li>
-            <a
-              href="https://www.linkedin.com/in/iamsushank/"
-              target="_blank"
-              style="
-                text-decoration: none;
-                color: #838f8f;
-                text-decoration-color: #838f8f;
-              "
-              ><i
-                style="
-                  text-decoration: none;
-                  color: #838f8f;
-                  text-decoration-color: #838f8f;
-                "
-                class="fa-brands fa-linkedin"
-              ></i
-            ></a>
-          </li>
-          <li>
-            <a
-              href="https://github.com/iamsushank"
-              target="_blank"
-              style="
-                text-decoration: none;
-                color: #838f8f;
-                text-decoration-color: #838f8f;
-              "
-              ><i
-                style="
-                  text-decoration: none;
-                  color: #838f8f;
-                  text-decoration-color: #838f8f;
-                "
-                class="fa-brands fa-github"
-              ></i
-            ></a>
-          </li>
-          <li>
-            <a
-              href="mailto: mandal678@gmail.com"
-              target="_blank"
-              style="
-                text-decoration: none;
-                color: #838f8f;
-                text-decoration-color: #838f8f;
-              "
-              ><i
-                style="
-                  text-decoration: none;
-                  color: #838f8f;
-                  text-decoration-color: #838f8f;
-                "
-                class="fa-solid fa-envelope"
-              ></i
-            ></a>
-          </li>
-        </ul>
-      </div>
-      <div class="section">
-        <h3 class="title">Get in Touch</h3>
-        <ul>
-          <li><i class="fas fa-phone"></i><span>+91 6204761170</span></li>
-          <li>
-            <i class="far fa-envelope-open"></i><span>mandal678@gmail.com</span>
-          </li>
-          <li><i class="far fa-building"></i><span>Bokaro, Jharkhand</span></li>
-        </ul>
-        <button>Send a Message</button>
-      </div>
-      <div class="section">
-        <h3 class="title">Services</h3>
-        <ul>
-          <li>Website Development</li>
-          <li>Building Applications</li>
-          <li>Backend Development</li>
-        </ul>
-      </div>
-      <div class="section">
-        <h3 class="title">Popular Tags</h3>
-        <ul class="tags">
-          <li>Development</li>
-          <li>Technology</li>
-          <li>App</li>
-          <li>Programming</li>
-        </ul>
-      </div>
-    </footer>
-    <div class="lower__footer">
-      <span>Don't try to copy, Tracking any intention of piracy.</span>
-      <span>&copy; 2022 all rights reserved.</span>
-    </div>
-    <script
-      src="https://kit.fontawesome.com/10b417d43c.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="scripts/script.js"></script>
-    <script src="scripts/animation.js"></script>
-    <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
-    <script>
-      GitHubCalendar(".calendar", "iamsushank");
 
-      // or enable responsive functionality:
-      GitHubCalendar(".calendar", "iamsushank", { responsive: true });
+    <section class="section wrap" id="contact">
+      <h2 class="sec-title"><span>05</span>Contact</h2>
+      <p class="lede small">Open to backend and Go roles in Delhi NCR, Bengaluru and other Indian cities, or remote within India. The quickest way to reach me is email.</p>
+      <ul class="contact">
+        <li><a href="mailto:mandal678@gmail.com"><span class="mono muted">email</span>mandal678@gmail.com</a></li>
+        <li><a href="tel:+916204761170"><span class="mono muted">phone</span>+91 62047 61170</a></li>
+        <li><a href="https://www.linkedin.com/in/iamsushank/" target="_blank" rel="noopener"><span class="mono muted">linkedin</span>linkedin.com/in/iamsushank</a></li>
+        <li><a href="https://github.com/isushank" target="_blank" rel="noopener"><span class="mono muted">github</span>github.com/isushank</a></li>
+        <li><a href="assets/Sushank_Mandal_Resume.pdf" download><span class="mono muted">resume</span>Sushank_Mandal_Resume.pdf</a></li>
+      </ul>
+    </section>
+  </main>
 
-      // Use a proxy
-      GitHubCalendar(".calendar", "iamsushank", {
-        proxy(iamsushank) {
-          return fetch(`https://your-proxy.com/github?user=${iamsushank}`);
-        },
-      }).then((r) => r.text());
-    </script>
-    <script></script>
-  </body>
+  <footer class="footer wrap">
+    <p class="mono muted">© <span id="year">2026</span> Sushank Mandal · Gurugram, India</p>
+    <a class="mono muted" href="#top">Back to top ↑</a>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
 </html>

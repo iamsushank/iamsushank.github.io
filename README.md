@@ -1,21 +1,18 @@
+# Sushank Mandal · Portfolio
 
-# [Portfolio Website](https://iamsushank.github.io/) 
+Personal portfolio for Sushank Mandal, backend engineer (Go) at Omniful Technologies.
 
-This is a personal portfolio website for recruiter to know about me and contact me.
+Plain HTML, CSS and a few lines of JavaScript. No build step. Served by GitHub Pages from the `main` branch.
 
+- `index.html`: page content
+- `style.css`: styles (light and dark themes, mobile layout)
+- `script.js`: theme toggle and mobile menu
+- `assets/Sushank_Mandal_Resume.pdf`: downloadable resume
 
-## Technology used 
+Run locally:
 
-- HTML
-- CSS
-- JavaScript
-- Tailwind
-- Bash
-- Github
-- Vs code
-## Overview of the site 
+```bash
+python3 -m http.server 8000
+```
 
-![Screenshort](https://www.linkpicture.com/q/Sushank-Mandal.png)
-## Author 
-
-> ### Sushank Mandal ([GitHub](https://github.com/iamsushank))
+Contact: [mandal678@gmail.com](mailto:mandal678@gmail.com) · [LinkedIn](https://www.linkedin.com/in/iamsushank/) · [GitHub](https://github.com/isushank)
