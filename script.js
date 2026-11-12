@@ -37,20 +37,23 @@
     btn.addEventListener("click", function () {
       var text = btn.getAttribute("data-copy");
       function done(ok) {
-        btn.textContent = ok ? "Copied" : "Press ⌘C";
+        btn.textContent = ok ? "Copied" : "Failed";
         btn.classList.toggle("done", ok);
         setTimeout(function () { btn.textContent = "Copy"; btn.classList.remove("done"); }, 1800);
       }
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
-      } else {
+      function legacyCopy() {
         var ta = document.createElement("textarea");
         ta.value = text; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
         document.body.appendChild(ta); ta.select();
         var ok = false;
         try { ok = document.execCommand("copy"); } catch (e) {}
         document.body.removeChild(ta);
-        done(ok);
+        return ok;
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(legacyCopy()); });
+      } else {
+        done(legacyCopy());
       }
     });
   });
