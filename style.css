@@ -343,12 +343,42 @@ strong { font-weight: 600; }
 }
 .card:hover { transform: translateY(-3px); }
 .card:hover::before { opacity: 1; }
-.card-top { display: flex; align-items: center; justify-content: space-between; }
-.card-icon {
-  display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px;
-  background: linear-gradient(135deg, var(--a1), var(--a2)); color: #fff;
+.cards .card { padding: 0; gap: 0; overflow: hidden; }
+.card-body { display: flex; flex-direction: column; gap: 12px; flex: 1; padding: 22px 24px 24px; }
+@media (max-width: 520px) { .card-body { padding: 18px 18px 20px; } }
+.shot {
+  display: block; position: relative;
+  background: var(--term-bg); border-bottom: 1px solid var(--line);
 }
-.card-icon svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.shot:hover { text-decoration: none; }
+.shot-bar {
+  display: flex; align-items: center; gap: 6px;
+  padding: 9px 12px; background: #11151c; border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.shot-bar i { width: 9px; height: 9px; border-radius: 50%; background: #ff5f57; }
+.shot-bar i:nth-child(2) { background: #febc2e; }
+.shot-bar i:nth-child(3) { background: #28c840; }
+.shot-bar .mono {
+  flex: 1; min-width: 0; margin-left: 8px; padding: 3px 10px; border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06); color: #8b93a1; font-size: 0.7rem;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.shot img {
+  display: block; width: 100%; height: auto; aspect-ratio: 16 / 9;
+  object-fit: cover; object-position: left top;
+  transition: transform 0.5s ease;
+}
+.shot { overflow: hidden; }
+.card:hover .shot img { transform: scale(1.03); }
+.card-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font: 600 0.72rem var(--mono); padding: 4px 10px; border-radius: 999px;
+}
+.badge.live { color: #16a34a; background: rgba(34, 197, 94, 0.12); }
+.badge.live .dot { width: 7px; height: 7px; }
+.badge.merged { color: #fff; background: #8957e5; }
+.badge svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 .card .tag { color: var(--muted); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; }
 .card h3 { font: 700 1.2rem var(--mono); }
 .card > p { color: var(--muted); }
