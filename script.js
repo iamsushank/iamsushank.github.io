@@ -32,14 +32,79 @@
     if (e.target.tagName === "A") setMenu(false);
   });
 
+  // Every external link opens in a new tab
+  document.querySelectorAll('a[href^="http"]').forEach(function (a) {
+    a.setAttribute("target", "_blank");
+    a.setAttribute("rel", "noopener");
+  });
+
+  // Resume preview on hover (pointer devices only); click still opens Drive in a new tab
+  (function () {
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    var links = document.querySelectorAll('a[href*="drive.google.com/file/d/"]');
+    if (!links.length) return;
+    var m = links[0].href.match(/\/file\/d\/([^/]+)/);
+    if (!m) return;
+    var src = "https://drive.google.com/file/d/" + m[1] + "/preview";
+    var pop = document.createElement("div");
+    pop.className = "resume-pop";
+    pop.setAttribute("aria-hidden", "true");
+    pop.innerHTML = '<div class="resume-pop-bar mono"><span>Resume preview</span><span>Click to open ↗</span></div>' +
+      '<div class="resume-pop-body"><div class="resume-pop-loading mono">Loading…</div></div>';
+    document.body.appendChild(pop);
+    var body = pop.querySelector(".resume-pop-body");
+    var iframe = null, showT, hideT;
+
+    function place(link) {
+      var r = link.getBoundingClientRect();
+      var w = pop.offsetWidth, h = pop.offsetHeight, gap = 10;
+      var left = Math.min(Math.max(12, r.left + r.width / 2 - w / 2), window.innerWidth - w - 12);
+      var top = r.bottom + gap;
+      if (top + h > window.innerHeight - 12) top = Math.max(12, r.top - h - gap);
+      pop.style.left = left + "px";
+      pop.style.top = top + "px";
+    }
+    function show(link) {
+      clearTimeout(hideT);
+      showT = setTimeout(function () {
+        if (!iframe) {
+          iframe = document.createElement("iframe");
+          iframe.src = src;
+          iframe.title = "Resume preview";
+          iframe.loading = "eager";
+          iframe.addEventListener("load", function () { pop.classList.add("loaded"); });
+          body.appendChild(iframe);
+        }
+        pop.classList.add("show");
+        place(link);
+      }, 220);
+    }
+    function hide() {
+      clearTimeout(showT);
+      hideT = setTimeout(function () { pop.classList.remove("show"); }, 180);
+    }
+    links.forEach(function (a) {
+      a.addEventListener("mouseenter", function () { show(a); });
+      a.addEventListener("mouseleave", hide);
+      a.addEventListener("click", function () { pop.classList.remove("show"); });
+    });
+    pop.addEventListener("mouseenter", function () { clearTimeout(hideT); });
+    pop.addEventListener("mouseleave", hide);
+    window.addEventListener("scroll", function () { pop.classList.remove("show"); }, { passive: true });
+  })();
+
   // Copy email to clipboard
-  document.querySelectorAll(".copy-btn").forEach(function (btn) {
-    btn.addEventListener("click", function () {
+  document.querySelectorAll(".copy-btn, .copy-email").forEach(function (btn) {
+    var label = btn.querySelector(".copy-label") || btn;
+    var original = label.textContent;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
       var text = btn.getAttribute("data-copy");
       function done(ok) {
-        btn.textContent = ok ? "Copied" : "Failed";
+        label.textContent = ok ? "Copied!" : "Copy failed";
         btn.classList.toggle("done", ok);
-        setTimeout(function () { btn.textContent = "Copy"; btn.classList.remove("done"); }, 1800);
+        clearTimeout(btn._t);
+        btn._t = setTimeout(function () { label.textContent = original; btn.classList.remove("done"); }, 1600);
       }
       function legacyCopy() {
         var ta = document.createElement("textarea");

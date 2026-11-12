@@ -470,6 +470,29 @@ strong { font-weight: 600; }
 .copy-btn.done { color: #16a34a; border-color: #16a34a; }
 .contact .mono { font-size: 0.7rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
 
+/* email pill copy feedback */
+.socials a.copy-email.done, .contact a.copy-email.done { color: #16a34a; border-color: #16a34a; }
+.copy-email { cursor: copy; }
+
+/* resume hover preview */
+.resume-pop {
+  position: fixed; z-index: 80; width: 380px; height: 500px;
+  display: flex; flex-direction: column; overflow: hidden;
+  border-radius: 14px; border: 1px solid var(--line-strong); background: var(--surface-solid);
+  box-shadow: 0 30px 60px -20px rgba(2, 6, 23, 0.55);
+  opacity: 0; visibility: hidden; transform: translateY(6px);
+  transition: opacity 0.16s ease, transform 0.16s ease, visibility 0s linear 0.16s;
+}
+.resume-pop.show { opacity: 1; visibility: visible; transform: none; transition: opacity 0.16s ease, transform 0.16s ease; }
+.resume-pop-bar {
+  display: flex; justify-content: space-between; gap: 8px;
+  padding: 8px 12px; font-size: 0.7rem; color: var(--muted); border-bottom: 1px solid var(--line);
+}
+.resume-pop-body { position: relative; flex: 1; background: #f1f1f1; }
+.resume-pop iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.resume-pop-loading { position: absolute; inset: 0; display: grid; place-items: center; color: #6b7280; font-size: 0.8rem; }
+.resume-pop.loaded .resume-pop-loading { display: none; }
+
 /* reach buttons */
 .reach { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; position: relative; }
 .btn { cursor: pointer; font-family: var(--sans); }
