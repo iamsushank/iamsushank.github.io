@@ -71,8 +71,6 @@
     var toast = document.getElementById("modal-toast");
     var count = document.getElementById("li-count");
     var gmail = document.getElementById("send-gmail");
-    var outlook = document.getElementById("send-outlook");
-    var mailapp = document.getElementById("send-mailapp");
     var roleOnly = form.querySelector(".role-only");
 
     function val(name) { return (f[name].value || "").trim(); }
@@ -126,8 +124,6 @@
       var s = encodeURIComponent(f.subject.value);
       var b = encodeURIComponent(f.body.value);
       gmail.href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + TO + "&su=" + s + "&body=" + b;
-      outlook.href = "https://outlook.office.com/mail/deeplink/compose?to=" + TO + "&subject=" + s + "&body=" + b;
-      mailapp.href = "mailto:" + TO + "?subject=" + s + "&body=" + b;
       var n = f.note.value.length;
       count.textContent = n + "/" + NOTE_LIMIT;
       count.classList.toggle("over", n > NOTE_LIMIT);
@@ -197,11 +193,7 @@
       f[n].addEventListener("input", function () { f[n].dataset.edited = "1"; updateLinks(); });
     });
 
-    gmail.addEventListener("click", function () { say("Draft opened in Gmail. Review it and press Send."); });
-    outlook.addEventListener("click", function () { say("Draft opened in Outlook. Review it and press Send."); });
-    document.getElementById("copy-email-msg").addEventListener("click", function () {
-      copy("To: " + TO + "\nSubject: " + f.subject.value + "\n\n" + f.body.value, "Message copied.");
-    });
+    gmail.addEventListener("click", function () { say("Draft opened. Review it and press Send."); });
     document.getElementById("send-linkedin").addEventListener("click", function () {
       copy(f.note.value, "Note copied. On LinkedIn choose Connect, then Add a note, and paste.", true);
       window.open(PROFILE, "_blank", "noopener");
