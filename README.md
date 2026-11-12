@@ -8,7 +8,7 @@ Plain HTML, CSS and a few lines of JavaScript. No build step. Served by GitHub P
 - `style.css`: styles (light and dark themes, mobile layout)
 - `script.js`: theme toggle, mobile menu, scroll reveal and active-section nav
 
-Resume: [Google Drive](https://drive.google.com/drive/u/0/folders/14yF6ST4tKyA6DpUMZ15WVsuCv-0r9ZFn)
+Resume: [Google Drive](https://drive.google.com/file/d/1gCcQvPXOuk7yF9LKKBPegUODxBFMazD6/view?usp=sharing)
 
 Run locally:
 
@@ -16,4 +16,4 @@ Run locally:
 python3 -m http.server 8000
 ```
 
-Contact: [mandal678@gmail.com](mailto:mandal678@gmail.com) · [LinkedIn](https://www.linkedin.com/in/iamsushank/) · [GitHub](https://github.com/isushank)
+Contact: [mandal678@gmail.com](mailto:mandal678@gmail.com) · [LinkedIn](https://www.linkedin.com/in/iamsushank/) · GitHub: [isushank](https://github.com/isushank), [iamsushank](https://github.com/iamsushank)
